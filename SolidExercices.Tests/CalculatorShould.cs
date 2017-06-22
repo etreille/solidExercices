@@ -11,7 +11,7 @@ namespace SolidExercices.Tests
         {
             var calculator = new Calculator();
             var result = calculator.Calculate("1+2,3");
-            Check.That(result).IsEqualTo(3.3);
+            Check.That(result).IsEqualTo(Convert.ToDecimal(3.3));
         }
         
 
@@ -20,7 +20,7 @@ namespace SolidExercices.Tests
         {
             var calculator = new Calculator();
             var result = calculator.Calculate("8-2,3");
-            Check.That(result).IsEqualTo(5.7);
+            Check.That(result).IsEqualTo(Convert.ToDecimal(5.7));
         }
 
         [Test]
@@ -28,7 +28,7 @@ namespace SolidExercices.Tests
         {
             var calculator = new Calculator();
             var result = calculator.Calculate("4*2,5");
-            Check.That(result).IsEqualTo(10.0);
+            Check.That(result).IsEqualTo(Convert.ToDecimal(10.0));
         }
 
         [Test]
@@ -36,7 +36,7 @@ namespace SolidExercices.Tests
         {
             var calculator = new Calculator();
             var result = calculator.Calculate("1/4");
-            Check.That(result).IsEqualTo(0.25);
+            Check.That(result).IsEqualTo(Convert.ToDecimal(0.25));
         }
 
         [Test]

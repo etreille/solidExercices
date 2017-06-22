@@ -1,42 +1,21 @@
-﻿using System;
-using System.Linq;
+﻿using System.Collections.Generic;
 
 namespace SolidExercices
 {
+
     public class Calculator
     {
-        public double Calculate(string operation)
+        private readonly List<IOperateur> _operateurs = new List<IOperateur>() { new Sum(), new Substraction(), new Product(), new Division() };
+        
+        public decimal Calculate(string operation)
         {
-            Double result = 0;
-            if (operation.Contains("+"))
+            decimal result = 0;
+
+            foreach (var operateur in _operateurs)
             {
-                var nombres = operation.Split('+');
-                result =
-                    nombres.Select(Convert.ToDouble).Aggregate((workingNumber, next) => workingNumber + next);
-            }
-            else if (operation.Contains("-"))
-            {
-                var nombres = operation.Split('-');
-                result =
-                    nombres.Select(Convert.ToDouble).Aggregate((workingNumber, next) => workingNumber - next);
-            }
-            else if (operation.Contains("*"))
-            {
-                var nombres = operation.Split('*');
-                result =
-                    nombres.Select(Convert.ToDouble).Aggregate((workingNumber, next) => workingNumber * next);
-            }
-            else if (operation.Contains("/"))
-            {
-                try
+                if (operateur.CanCalculate(operation))
                 {
-                    var nombres = operation.Split('/');
-                    result =
-                        nombres.Select(Convert.ToDouble).Aggregate((workingNumber, next) => workingNumber / next);
-                }
-                catch (DivideByZeroException e)
-                {
-                    Console.WriteLine("Division par zéro impossible "+e.Message);
+                    result = operateur.Calculate(operation);
                 }
             }
 

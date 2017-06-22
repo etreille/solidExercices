@@ -18,7 +18,7 @@ Réponses aux questions posées
 -----------------------------
 
 Q1)
-
+Pour éviter les ifs en cascade et les switchs, on peut encapsuler les opérations à l'aide de classes qui représentent les différents opérateurs et qui implémentent une interface
 Q2)
 
 Q3)
