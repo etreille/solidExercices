@@ -7,9 +7,16 @@ namespace SolidExercices
         private readonly string[] _operations = new[]
             {"1+2,3", "2 x 3,6", "6-1-3,8", "6,6/3", "6/0", "not an operation", "a+1", "12", ""};
 
+        private readonly Operateurs _operateurs = new Operateurs();
+
         public void Run()
         {
-            var calculator = new Calculator();
+            _operateurs.Add(new Sum());
+            _operateurs.Add(new Substraction());
+            _operateurs.Add(new Product());
+            _operateurs.Add(new Division());
+
+            var calculator = new Calculator(_operateurs);
             foreach (var operation in _operations)
             {
                 try
