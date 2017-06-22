@@ -14,23 +14,30 @@ namespace SolidExercices
                 result =
                     nombres.Select(Convert.ToDouble).Aggregate((workingNumber, next) => workingNumber + next);
             }
-            if (operation.Contains("-"))
+            else if (operation.Contains("-"))
             {
                 var nombres = operation.Split('-');
                 result =
                     nombres.Select(Convert.ToDouble).Aggregate((workingNumber, next) => workingNumber - next);
             }
-            if (operation.Contains("*"))
+            else if (operation.Contains("*"))
             {
                 var nombres = operation.Split('*');
                 result =
                     nombres.Select(Convert.ToDouble).Aggregate((workingNumber, next) => workingNumber * next);
             }
-            if (operation.Contains("/"))
+            else if (operation.Contains("/"))
             {
-                var nombres = operation.Split('/');
-                result =
-                    nombres.Select(Convert.ToDouble).Aggregate((workingNumber, next) => workingNumber / next);
+                try
+                {
+                    var nombres = operation.Split('/');
+                    result =
+                        nombres.Select(Convert.ToDouble).Aggregate((workingNumber, next) => workingNumber / next);
+                }
+                catch (DivideByZeroException e)
+                {
+                    Console.WriteLine("Division par zéro impossible "+e.Message);
+                }
             }
 
             return result;
