@@ -19,8 +19,7 @@ namespace SolidExercices
             }
             catch (DivideByZeroException e)
             {
-                Console.WriteLine("Division par zéro impossible " + e.Message);
-                return 0;
+                throw new DivideByZeroException("Division par zéro impossible " + e.Message);
             }
         }
     }
