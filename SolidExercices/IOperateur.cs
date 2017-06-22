@@ -1,6 +1,6 @@
 ﻿namespace SolidExercices
 {
-    internal interface IOperateur
+    public interface IOperateur
     {
         bool CanCalculate(string operation);
         decimal Calculate(string operation);

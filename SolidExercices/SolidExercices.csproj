@@ -46,6 +46,7 @@
     <Compile Include="Calculator.cs" />
     <Compile Include="Division.cs" />
     <Compile Include="IOperateur.cs" />
+    <Compile Include="Operateurs.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Substraction.cs" />

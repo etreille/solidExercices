@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace SolidExercices
 {
-    internal class Sum : IOperateur
+    public class Sum : IOperateur
     {
         public bool CanCalculate(string operation)
         {
