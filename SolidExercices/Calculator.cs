@@ -7,7 +7,33 @@ namespace SolidExercices
     {
         public double Calculate(string operation)
         {
-            throw new NotImplementedException();
+            Double result = 0;
+            if (operation.Contains("+"))
+            {
+                var nombres = operation.Split('+');
+                result =
+                    nombres.Select(Convert.ToDouble).Aggregate((workingNumber, next) => workingNumber + next);
+            }
+            if (operation.Contains("-"))
+            {
+                var nombres = operation.Split('-');
+                result =
+                    nombres.Select(Convert.ToDouble).Aggregate((workingNumber, next) => workingNumber - next);
+            }
+            if (operation.Contains("*"))
+            {
+                var nombres = operation.Split('*');
+                result =
+                    nombres.Select(Convert.ToDouble).Aggregate((workingNumber, next) => workingNumber * next);
+            }
+            if (operation.Contains("/"))
+            {
+                var nombres = operation.Split('/');
+                result =
+                    nombres.Select(Convert.ToDouble).Aggregate((workingNumber, next) => workingNumber / next);
+            }
+
+            return result;
         }
     }
 }
